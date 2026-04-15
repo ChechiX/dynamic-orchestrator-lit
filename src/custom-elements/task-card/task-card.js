@@ -6,10 +6,12 @@ export class TaskCard extends LitElement {
   };
 
   render() {
-    return html`<li>
-      ${this.task.priority} - ${this.task.content.title} -
-      ${this.task.content.description}
-    </li>`;
+    if (!this.task) return html``;
+
+    return html` <article>
+      <div class="priority">Priority: ${this.task.priority}</div>
+      <slot></slot>
+    </article>`;
   }
 }
 
